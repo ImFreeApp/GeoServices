@@ -5,7 +5,7 @@ var CheckInSchema = new Schema({
   creationDate: {type:Date, default: Date.now},
   userId: String,
   geo: {type: [Number], index: '2d'},
-  activity: String,
+  activity: Array,
   valid: {type:Boolean, default: true}
 });
 
