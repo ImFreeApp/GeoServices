@@ -4,20 +4,21 @@ var Promise = require("bluebird");
 
 var CheckInSchema = new Schema({
   creationDate: {type:Date, default: Date.now},
-  userId: ObjectId,
+  userId: String,
   geo: {type: [Number], index: '2d'},
   activity: String,
 });
 
-CheckInSchema.methods.findNearby = function(latitude,longitude,distance){
+CheckInSchema.statics.findNearby = function(longitude,latitude,distance){
+  var context = this;
   return new Promise(function(resolve,reject){
-    this.model('CheckIn').find({geo:{$nearSphere: [latitude,longitude], $maxDistance: distance}},function(err,result){
+    context.find({geo:{$nearSphere: [longitude,latitude], $maxDistance: distance}},function(err,result){
       if(err){
         reject(err);
       }else{
         resolve(result);
       }
-    });
+    }.bind(this));
   });
 };
 

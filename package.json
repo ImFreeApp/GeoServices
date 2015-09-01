@@ -6,16 +6,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": { "name" : "Rene Loperena",
-    "email" : "rene@vuh.io",
-    "url" : "http://www.vuh.io/"
+  "author": {
+    "name": "Rene Loperena",
+    "email": "rene@vuh.io",
+    "url": "http://www.vuh.io/"
   },
-  "contributors":[{ "name" : "Omar Shaikh",
-    "email" : "omar@awesomeomar.com",
-    "url" : "http://www.awesomeomar.com/"
-  }],
+  "contributors": [
+    {
+      "name": "Omar Shaikh",
+      "email": "omar@awesomeomar.com",
+      "url": "http://www.awesomeomar.com/"
+    }
+  ],
   "license": "proprietary",
   "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "mongoose": "^4.1.4"
   }
