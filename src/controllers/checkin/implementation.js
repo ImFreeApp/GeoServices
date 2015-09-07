@@ -1,7 +1,10 @@
+var CheckIn = require('../../models/check-in');
 
 module.exports = {
 
   getCheckIn : function(req,res){
+    console.log('recieved req');
+    console.log(req.query);
     var latitude = req.query.latitude;
     var longitude = req.query.longitude;
     var distance = req.query.distance/3959 || 5/3959
@@ -24,6 +27,7 @@ module.exports = {
   },
 
   postCheckIn : function(req,res){
+    console.log('recieved req');
     if(!req.body || !req.body.latitude || !req.body.longitude || !req.body.activity || !req.body.userId) {
       return res.status(400).json({error: "Bad Request"});
     }else{
@@ -36,6 +40,7 @@ module.exports = {
           var response = {error:'Unable to save user checkin'};
           res.status(500).json(response);
         }else{
+          console.log('added to db');
           res.status(201).send();
         }
       });
