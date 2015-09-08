@@ -34,16 +34,35 @@ module.exports = {
       var geo = [req.body.longitude, req.body.latitude];
       var activity = req.body.activity
       var userId = req.body.userId
-      var checkIn = new CheckIn({geo: geo, activity: activity, userId: userId});
-      checkIn.save(function(err){
-        if (err) {
-          var response = {error:'Unable to save user checkin'};
-          res.status(500).json(response);
-        }else{
-          console.log('added to db');
+      CheckIn.findOne({userId: userId}, function(err, model){
+        if (model) {
+          console.log(model);
+          model.activity.push(activity);
+          model.save(function(err){
+            if (err) {
+              var response = {error:'Unable to save user checkin'};
+              res.status(500).json(response);
+            }else{
+              console.log('added to db');
+              res.status(201).send();
+            }
+          });
+          console.log('existing');
           res.status(201).send();
+        } else {
+          console.log('creating');
+          var checkIn = new CheckIn({geo: geo, activity: [activity], userId: userId});
+          checkIn.save(function(err){
+            if (err) {
+              var response = {error:'Unable to save user checkin'};
+              res.status(500).json(response);
+            }else{
+              console.log('added to db');
+              res.status(201).send();
+            }
+          });
         }
-      });
+      })
     }
   }
 };
