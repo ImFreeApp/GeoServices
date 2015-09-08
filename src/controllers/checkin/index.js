@@ -5,7 +5,12 @@ var implementation = require('./implementation');
 router.use(require('body-parser').json());
 router.use(require('cors')());
 
-router.get('/', implementation.getCheckIns);
-router.post('/', implementation.createCheckIns);
+router.get('/', function(req, res){
+  implementation.getCheckIn(req, res);
+});
+
+router.post('/', function(req, res){
+  implementation.postCheckIn(req, res);
+});
 
 module.exports = router;
