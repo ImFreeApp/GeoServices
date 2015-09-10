@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 
-app.use('/api/', require('./src/controllers'));
+app.use('/api/', require('./src/context'));
 
 var port = process.env.PORT || 3001;
 var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/geo';
