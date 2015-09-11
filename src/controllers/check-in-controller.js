@@ -2,10 +2,8 @@
 class CheckInController{
   constructor(checkInManager){
     this.checkInManager = checkInManager;
-    console.log(this);
   }
   findCheckInsByLatLong(req,res){
-    console.log(this);
     var latitude = req.query.latitude;
     var longitude = req.query.longitude;
     var distance = req.query.distance/3959 || 5/3959
