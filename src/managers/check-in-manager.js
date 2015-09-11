@@ -4,20 +4,10 @@ class CheckInManager{
     this.checkInDao = checkInDao;
   }
   findCheckInsByLatLong(latitude,longitude,distance){
-    var checkInDao = this.checkInDao;
-    return new Promise(function(resolve,reject){
-      checkInDao.findCheckInsByLatLong(latitude,longitude,distance)
-        .then(resolve)
-        .catch(reject);
-    });
+    return this.checkInDao.findCheckInsByLatLong(latitude,longitude,distance);
   }
   createCheckIn(userId, activity, latitude, longitude){
-    var checkInDao = this.checkInDao;
-    return new Promise(function(resolve,reject){
-      checkInDao.createCheckIn(userId, activity, latitude, longitude)
-        .then(resolve)
-        .catch(reject);
-    });
+    return this.checkInDao.createCheckIn(userId, activity, latitude, longitude);
   }
 }
 module.exports = CheckInManager;
