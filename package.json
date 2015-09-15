@@ -2,9 +2,11 @@
   "name": "geo-services",
   "version": "1.0.0",
   "description": "Provides Geolocation information for our Application Stack",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "unit-tests": "mocha test/controllers/check-in-controller-spec.js",
+    "integration-tests": "mocha test/integration/integration-tests.js"
   },
   "author": {
     "name": "Rene Loperena",
@@ -28,8 +30,8 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "mocha": "^2.3.0",
+    "request": "^2.61.0",
     "rewire": "^2.3.4",
-    "sinon": "^1.16.1",
-    "request": "^2.61.0"
+    "sinon": "^1.16.1"
   }
 }

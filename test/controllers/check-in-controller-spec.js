@@ -35,7 +35,6 @@ describe('Checkin Controller', function() {
         resolve(result);
       }));
       checkInController.findCheckInsByLatLong(req,res);
-      assert(validateStatus === 200, 'should be 200');
 
     });
     it('should return status 500 (Internal Server Error) if error occurs', function () {
