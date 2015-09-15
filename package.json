@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "unit-tests": "mocha test/controllers/check-in-controller-spec.js",
+    "unit-tests": "node_modules/.bin/mocha test/controllers/check-in-controller-spec.js",
     "integration-tests": "mocha test/integration/integration-tests.js"
   },
   "author": {
